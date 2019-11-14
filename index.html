@@ -20,8 +20,23 @@
     function initMap() {
       var uluru = {lat: 22.6220748, lng: 120.3901936};//地圖的座標
       map = new google.maps.Map(//以function(抓取html的值,陣列的地圖屬性(遠近,地圖座標))
-          document.getElementById('map'), {zoom: 17.11, center: uluru});
-      var marker = new google.maps.Marker({position: uluru, map: map, title:'大寮捷運站'});//標記(座標,站名)
+          document.getElementById('map'), {zoom: 13, center: uluru});
+        var data = [//寫json格式資料
+          {
+            position:{lat: 22.6220748, lng: 120.3901936},
+            map: map,
+            title:'大寮捷運站'
+          },
+          {
+            position:{lat: 22.6252805, lng: 120.3609714},
+            map: map,
+            title:'大東捷運站'
+          }
+        ];
+      for (var i =0; data.length>i; i++) {//將json格式的資料Run出來到marker
+        var marker = new google.maps.Marker(data[i]);
+        console.log(i);      
+      }
     }
     </script>
 
