@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 100%; 
+       }
+       html,
+       body{/* 讓地圖佔滿整個畫面 */
+         height: 100%;
+         margin: 0;
+         padding: 0;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;//載入地圖的id
+    function initMap() {
+      var uluru = {lat: 22.6220748, lng: 120.3901936};//地圖的座標
+      map = new google.maps.Map(//以function(抓取html的值,陣列的地圖屬性(遠近,地圖座標))
+          document.getElementById('map'), {zoom: 17.11, center: uluru});
+      var marker = new google.maps.Marker({position: uluru, map: map, title:'大寮捷運站'});//標記(座標,站名)
+    }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuPGZCYrmJjbxTkK3Lf-PBDUAKC6rykNc&callback=initMap">//載入的時候驗證key='金鑰驗證'&
+    </script>
+  </body>
+</html>
